@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Layout</title>
+    <style>
+        *{margin: 0;padding: 0; box-sizing: border-box;}
+        header{
+            background-color: blue;
+            height: 80px;
+        }
+        nav{background-color: blueviolet;}
+        nav a{
+            text-decoration: none;
+            color: aliceblue;
+            float: left;
+            display: block;
+            width: 100%;
+            height: 100px;
+            padding: 10px 20px;
+            line-height: 60px;
+            text-align: center;            
+            background-color: brown;
+        }
+        nav a:hover{
+                background-color: chartreuse;
+        }
+        section{
+            background-color: burlywood;
+            margin: 0 auto;
+            width: 1024px;
+            border: 1px solid black;
+            padding: 10px;
+            min-height: 200px;
+        }
+        footer{
+            background-color: cadetblue;
+            min-height: 80px;
+                       
+        }
+        footer .copy {
+            float: left;
+            min-height: 80px;
+            padding: 0 20px;
+        }
+
+        footer .family{
+            float: right;
+            line-height: 80px;
+            min-width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#http://www.naver.com">네이버</a>
+            <a href="#http://www.kakao.com">카카오</a>
+            <a href="#http://www.youtube.com">유튜브</a>
+        </nav>
+    </header>
+    <section>
+        <h1>My Page</h1>
+        <p>My Page 에 오신걸 환영합니다~!</p>
+    </section>
+    <section>
+        <h1>2번째 섹션</h1>
+        <p>2번째 영역 입니다~!</p>
+        <article>
+            별 않은 딴은 하나에 까닭이요, 듯합니다. 어머니 노루, 남은 딴은 계절이 없이 까닭입니다. 같이 이국 어머니, 새워 다하지 하나에 가난한 있습니다. 새워 하나에 나는 내 내린 하나에 별 봅니다. 하나에 벌써 별 추억과 하나 패, 이름과 있습니다. 아직 가슴속에 하나에 거외다. 언덕 다 토끼, 이름자를 별이 풀이 별을 피어나듯이 있습니다. 밤을 오는 무덤 벌레는 까닭입니다. 이름자를 벌써 피어나듯이 가득 계절이 겨울이 보고, 사람들의 차 듯합니다.
+        </article>   
+    </section>
+    <section>
+        <h1>3번째 섹션</h1>
+        <p>4번째 영역 입니다~!</p>
+    </section>
+    <footer>
+        <p class="copy">Copyright ⓒ ALOHA CLASS. All Rights Reserved</p>
+        <p class="family">
+            <select name="family">
+                <option value="1">네이버</option>
+                <option value="2">카카오</option>
+                <option value="3">유튜브</option>
+            </select>
+        </select>
+        </p>  
+    </footer>
+</body>
+</html>
