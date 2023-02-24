@@ -22,9 +22,9 @@
                const cafeList = document.getElementsByTagName('li')
                for (let i = 0; i < cafeList.length; i++) {
                    // item(인덱스) : 인덱스로 목록의 요소를 접근
-                   cafeList.item(i).style.color = 'blue'
-                   
+                   cafeList.item(i).style.color = 'blue'   
                 }
+
                 // id 로 요소 선택           : getElementById()
                 const box = document.getElementById('box')
                 box.style.width = '200px'
@@ -33,13 +33,13 @@
                 
                 // class 로 요소 선택        : getElementsByClassName()
                 const items = document.getElementsByClassName('item')
-                item[0].style.width = '200px'
-                item[0].style.height = '100px'
-                item[0].style.backgroundColor = 'royalblue'
+                items[0].style.width = '200px'
+                items[0].style.height = '100px'
+                items[0].style.backgroundColor = 'royalblue'
                 
-                item[1].style.width = '200px'
-                item[1].style.height = '100px'
-                item[1].style.backgroundColor = 'conrnflowerblue'
+                items[1].style.width = '200px'
+                items[1].style.height = '100px'
+                items[1].style.backgroundColor = 'cornflowerblue'
 
                 items.item(2).style.width = '200px'
                 items.item(2).style.height = '100px'
@@ -50,7 +50,7 @@
                 items.item(3).style.backgroundColor = 'Indigo'
 
                 // name 으로 요소 선택       : getElmentsByName()
-                const inputs = document.getElementsByName('input)')
+                const inputs = document.getElementsByName('input')
                 const input = inputs[0]
 
                 // 입력 태그에 키 입력시, h1 태그에 텍스트를 출력
@@ -99,7 +99,7 @@
     <div class="item"></div>
     <div class="item"></div>
 
-    <h1 class="text">입력해보세요!</h1>
+    <h1 id="text">입력해보세요!</h1>
     <input type="text" name="input" placeholder="입력해보세요!" value="">
 
     <hr>
@@ -112,6 +112,5 @@
             <li><img src="" alt=""></li>
         </ul>
     </div>
-    
 </body>
 </html>
