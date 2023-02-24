@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 수 세기</title>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.querySelector('textarea')
+            const h2 = document.querySelector('h2')
+            const ul = document.querySelector('ul')
+
+            //이벤트 처리               키보드를 입력할때 인지
+            textarea.addEventListener('keyup', (event)=>{
+                //글자 수 
+                const length = textarea.value.length
+                h2.textContent = `글자 수  : ${length}`
+
+                // keyCode : 13 (엔터키에 대한 인식)
+                if( event.keyCode == '13'){
+                    const text =textarea.value /* 정문태그에 있는 값을 가져와서 */
+                    const li = document.createElement('li') // <lu> 요소 생성
+                    li.textContent = text
+                    ul.appendChild(li)      // <ul> 자식요소로  <li>를 추가
+                    textarea.value = '' // 엔터치면 입력박스 비워줌
+                    h2.textContent = '글자 수 : 0'
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <ul><textarea name="" id="" cols="30" rows="10"></textarea></ul> <!-- 장문 텍스트 입력창 -->
+    <h2></h2>
+</body>
+</html>

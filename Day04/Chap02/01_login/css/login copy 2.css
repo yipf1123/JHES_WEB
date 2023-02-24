@@ -1,63 +1,62 @@
-*{margin: 0; padding: 0;}
-
-body{
+* { margin: 0; padding: 0;}
+/*  모든 브라우저에서 동일하게 보이게 하기 위해 padding과 margin 값을 0으로 초기화 하는 것 */
+body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: 
-    radial-gradient(circle at 50% 0, rgba(255,0,0, 0.5), rgba(255,0,0,0) 70%),
-    radial-gradient(circle at 7% 75%, rgba(0,0,255, 0.5), rgba(255,0,0,0) 70%),
-    radial-gradient(circle at 93% 75%, rgba(0,255,0, 0.5), rgba(255,0,0,0) 70%);
+    background:
+        radial-gradient(circle at 50% 0, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 70%),
+        radial-gradient(circle at 7% 75%, rgba(0, 0, 255, 0.5), rgba(255, 0, 0, 0) 70%),
+        radial-gradient(circle at 93% 75%, rgba(0, 255, 0, 0.5), rgba(255, 0, 0, 0) 70%);
 }
 
 /* reset */
 input{
-    outline: none;
-    border: none;
+  /*   outline: none; */ /* 윤곽선 : 레이아웃에 영향을 끼치지 않는다 그러나 특정부분효과나 radius 안됨 */
+    border: none; /* 테두리 : 공간을 차지하여 레이아웃에 영향을 줌, 다양한 스타일변화 가능 */
     background-color: transparent; /* 투명 */
 }
 
-a{
+a{ /* 버튼(로그인/회원가입) 텍스트 변화 */
     text-decoration: none;
     color: black;
     text-align: center;
 }
 
 /* 전체 영역 */
-.container {
+.container {/* background 이미지 크기 */
     width: 100%;
     height: 100vh;
-    position: relative;
 }
 
-/* 로그인 영역 */
+/* 로그인 박스 */
 .login-wrap{
-    /* 가로/세로 가운데 */
-    position: absolute;
+   
+    position: absolute; /* (전체영역에 대해container일반적 문서흐름에서 벗어나 상위 요소중 가장 가까운 position 지정요소가 기준이 됨 */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);  /* 가로/세로 가운데 */
     width: 350px;
     height: 600px;
-    padding: 30px;
+    padding: 30px; /* 4면 안쪽여백 */
     border-radius: 10px;
     background-color: white;
                 /* x축 y축 블러 색상 */
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);        
 }
 
-/* inner */
+/* 중첩박스(inner) ????어디부분*/
 #login {width:100%; height: 100%; }
 
 /* 로고 */
 #login .login-logo{
     height: 200px;
     margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;   /* 바깥쪽 여백 ???? */
 }
-#login .login-logo img { width: 100%; height: 200px; object-fit: contain;} /*contain 이미지 비율 맞춰 줄어듬 */
-
+#login .login-logo img { width: 100%; height: 200px; /* width의 기준이 어디느냐???? */
+                        object-fit: contain;} /*contain 이미지 비율 맞춰 줄어듬 */
 /* 아이디/비밀번호 */
 #login .login-inputbox {
-    position: relative;
+    position: relative; /* 보더의 부모가 되려고!!일반적인 문서흐름에 따른 배치, 기준 : 왼쪽 상단 */
     height: 50px;
     margin-bottom: 10px;
 }
@@ -67,7 +66,7 @@ a{
     padding-left: 5px;
     font-size: 1rem;
     border-bottom: 1px solid #aaa;
-    box-sizing: border-box;
+    box-sizing: border-box; /* 요소 + 보더. 총 너비(width, height)에 안쪽 여백(padding)과 테두리 선(border)를 포함하여 요소의 크기를 계산 */
 }
 
 
@@ -81,13 +80,13 @@ a{
       선택하는 가상 선택자
 */
 #login .login-inputbox input::placeholder{
-    color: #aaa;
+    color: #aaa; /* 아이디 비밀번호 글씨 */
 }
 
 
-#login .login-inputbox input ~.border {
+#login .login-inputbox input ~.border { /* focus 전 상태  : ~형제자매 관계에 있는 선택자 지정!!!*/
     position: absolute;
-    top: 30px;
+    top: 30px;   /* ???? */
     left: 0;
     width: 0;
     border: 0 solid cornflowerblue;
@@ -120,7 +119,7 @@ a{
     cursor: pointer;
     margin-right: 15px;
 }
-#login .login-remember label input{
+#login .login-remember label input{ /*  초기화 시킴input??? 체크박스 없어짐 */
     position: absolute;
     width: 0;
     height: 0;
@@ -137,7 +136,7 @@ a{
     background-color: #eee;
 }
 
-#login .login-remember label .checkmark::after {
+#login .login-remember label .checkmark::after { /* 다시봐야해 */
     content: '';
     position: absolute;
     top: 3px;
@@ -153,12 +152,13 @@ a{
     background-color: cornflowerblue;
 }
 
-#login .login-remember label input:checked ~ span {
+#login .login-remember label input:checked ~ span { /* 체크시 글자색 */
     color: cornflowerblue;
 }
 
+
 /* 버튼 */
-#login .login-btnbox {
+#login .login-btnbox {  /* ??? */
     height: 50px;
     margin-bottom: 10px;
 }
@@ -173,7 +173,7 @@ a{
     border-radius: 5px;
 } 
 
-#login .login-btnbox .login-btn:hover {
+#login .login-btnbox .login-btn:hover { /* 로그인 회원가입 마우스 커서 올렸을 때 */
     filter : brightness(90%);
 }
 

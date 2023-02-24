@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+    <script>                     /*  문서준비 이벤트    콜백함수 */
+        document.addEventListener('DOMContentLoaded', () => {
+            /* 2번 */
+            let count = 0
+            let btn = document.querySelector('button')
+            let h1 = document.querySelector('h1')
+
+            // button 클릭 이벤트: 버튼 클릭시 이벤트 함수 실행
+            btn.addEventListener('click', (event) => {
+                count++
+                h1.textContent = `클릭 : ${count}`  //클릭한 횟수 변경
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- 1번 -->
+    <h1>클릭 : 0</h1>
+    <button>클릭</button>
+
+</body>
+</html>
