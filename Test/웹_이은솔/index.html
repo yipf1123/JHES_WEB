@@ -33,31 +33,30 @@
         </div>
 
         <div class="util">
-            <buttuon id="menu">
+            <a href="javascript:;" id="menu">
                 <i class="fa fa-bars"></i>
-            </buttuon>
+            </a>
         </div>
     </header>
-        
-        <div class="side-bar">
-            <div class="inner">
-                <pre class="common-title ft-pt">A l o h a    W e d d i n g</pre>
+
+    <div class="side-bar">
+        <div class="inner">
+            <h3 class="common-title ft-pt">Aloha Wedding</h3>
+            <nav>
+                <ul>
+                    <li><a href="#profile">혼주 연락하기</a></li>
+                    <li><a href="#gallery">갤러리</a></li>
+                    <li><a href="#place">오시는 길</a></li>
+                    <li><a href="#reply">메시지</a></li>
+                </ul>
+            </nav>
+
+            <div class="side-btn">
+                <a href="#" class="btn">닫 기</a>
             </div>
-                <nav class="nav-inside">
-                    <ul>
-                        <li><a href="#profile">혼주 연락하기</a></li>
-                        <li><a href="#gallery">갤러리</a></li>
-                        <li><a href="#place">오시는 길</a></li>
-                        <li><a href="#reply">메시지</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="side-btn">
-                    <buttuon id="btn">닫기</buttuon>
-                </div>
-                
+
         </div>
-    
+    </div>
 
     <!-- 슬라이드바 -->
 
@@ -85,14 +84,14 @@
                         <li>ALOHA WEDDING 그랜드 웨딩홀 14층</li>
                     </ul>
                 </div>
-                
+
             </div>
         </section>
 
 
         <section class="profile" id="profile">
 
-            <h2 class="common-title">혼주에게 연락하기</h2>
+            <h3 class="common-title">혼주에게 연락하기</h3>
 
             <div class="grid-container">
 
@@ -101,7 +100,6 @@
                         <img src="img/신랑.png" alt="신랑" class="avatar">
                     </div>
                 </div>
-
                 <div class="item">
                     <div class="icon-box">
                         <img src="img/신부.png" alt="신랑" class="avatar">
@@ -113,18 +111,17 @@
                         <span>신랑</span>
                         <h5>권보훈</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
                 </div>
-
                 <div class="item">
                     <div class="title">
                         <span>신부</span>
                         <h5>황아리</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
@@ -144,7 +141,7 @@
                         <span>아버지</span>
                         <h5>권두길</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
@@ -154,7 +151,7 @@
                         <span>아버지</span>
                         <h5>황현철</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
@@ -164,7 +161,7 @@
                         <span>어머니</span>
                         <h5>최현숙</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
@@ -174,7 +171,7 @@
                         <span>어머니</span>
                         <h5>김현희</h5>
                     </div>
-                    <div class="icon-box2">
+                    <div class="icon-box">
                         <a href="tel:01092921004"><img src="img/call.png" alt="전화"></a>
                         <a href="sms:01092921004"><img src="img/chat.png" alt="문자"></a>
                     </div>
@@ -334,7 +331,7 @@
                             <input type="password" name="password" id="password" class="input" placeholder="비밀번호">
                         </div>
                         <div class="item-100">
-                            <textarea name="" id="write" cols="30" rows="5" placeholder="축하의 마음을 전해주세요"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" placeholder="축하의 마음을 전해주세요"></textarea>
                         </div>
                     </div>
 
@@ -370,12 +367,14 @@
     
 
     <!-- ################ TODO: 여기에 작성 ################ -->
-    <div id="map" style="width:500px;height:400px;"></div>
-	<div id="clickLatlng"></div>
+  
+        <!-- 카카오 지도 API 기능 구현하기 --> 
+        <div id="map" style="width:500px;height:400px;"></div>
+	    <div id="clickLatlng"></div>
 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4d9c4ccd55af22e749af292453ba1fa9"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4d9c4ccd55af22e749af292453ba1fa9"></script>
 
-    <script>
+        <script>
 
 		var lat = 37.51826573899883		// 위도
 		var lon = 126.90642947856348
@@ -417,6 +416,8 @@
 			yAnchor: 0 // 컨텐츠의 y 위치
 		});
 
-	</script>
+    </script>
+
+
 </body>
 </html>

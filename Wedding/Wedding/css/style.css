@@ -33,6 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
 }
 
 .logo img {
@@ -58,7 +59,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; /* ??????? */
+    display: none; /* 디스플레이 두번 정의 가능? */
 }
 
 .inner .common-title {
@@ -254,6 +256,7 @@ header {
 
 #gallery .item img {
     width: 100%;
+    object-fit: cover; /* 나는 왜 안되지 옹ㄹ로앨ㅇㅁㄹㄹㅇㅁ렁ㄴ;ㅣㅓㅏ */
 }
 
 /*  잊지 못할 순간들 */
@@ -344,7 +347,7 @@ header {
     grid-template-rows: 30px 150px;
     grid-column-gap: 20px;
     grid-row-gap: 10px;
-    grid-template-areas:
+    grid-template-areas: /* 이거 왜 안됨!!!!!!!! */
         "a b"
         "c c";
 }
