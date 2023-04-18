@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div id="second">2</div>
+    <div class = "a x">3</div>
+    <div class = "a y">4</div>
+    <div>5</div>
+
+    <div class="a">
+        <div class="b e">
+            <div class="c">
+                <div class="d">
+                    학생이랍니다
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c">
+        <div class="d">
+        </div>
+    </div>
+
+    <div id="msg">
+        여기는 메세지 나오는곳
+    </div>
+
+    <div id="msg2">
+        여기는 메세지 나오는곳
+    </div>
+    <input id = "id2" value ="나는 너와 헤어질꺼야">
+
+    <script>
+        console.log("hello world")
+
+        // css 선택자로 첫번째 dom 하나만 보여줌
+        let dom = document.querySelector("div")
+        console.log(dom)
+        
+        // 모든 dom을 배열로 보여줌
+        let dom_all = document.querySelectorAll("div")
+        console.log(dom_all) 
+
+        // id는 #붙여서 선택해서 불러옴
+        let second = document.querySelector("#second")
+        console.log(second)
+
+        // class는 .붙여서 선택해서 불러옴
+        let x = document.querySelector(".x")
+        console.log(x)
+
+        // a 밑에 자식 자손들 모두 중에 c 를 찾아서 보여줌
+        let c = document.querySelector("div.a .c")
+        console.log(c)
+        
+        // > 이걸 사용하면 a 밑에 자식 중에서만 찾아서 보여줌
+        let d = document.querySelector("div.a > .b")
+        console.log(c)
+
+        let e = document.querySelector("div.e")
+        console.log("e.innerHTML:", e.innerHTML);
+        console.log("e.text:", e.text);
+
+        let msg = document.querySelector("#msg")
+        msg.innerHTML = "다른 <strong>글씨</strong>"
+
+        let msg2 = document.querySelector("#msg2")
+        msg2.innertext = "다른 <strong>글씨</strong>"
+
+        let id = document.querySelector("#id2")
+        console.log(id.value)
+        
+  </script>
+</body>
+</html>
