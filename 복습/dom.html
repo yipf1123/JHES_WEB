@@ -17,7 +17,7 @@
         <div class="b e">
             <div class="c">
                 <div class="d">
-                    학생이랍니다
+                    학생 이은솔
                 </div>
             </div>
         </div>
@@ -34,8 +34,17 @@
     <div id="msg2">
         여기는 메세지 나오는곳
     </div>
-    <input id = "id2" value ="나는 너와 헤어질꺼야">
 
+    <input id = "id2" value ="나는 너와">
+
+    <hr>
+    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA1MjVfNTgg%2FMDAxNjIxOTQ0NDEwMjQ5.CMhU_cGqUkEnwS1oXHaro-4062UNwr2gVwPP2R3JnFog.AMnyq7cF540IVPzytdmQ-bTugpLjxkWgEbdVtBbu0A4g.JPEG.dscmin947%2FIMG_8009.jpg&type=sc960_832">
+    
+    <p id="info">
+    
+    
+    </p>
+    
     <script>
         console.log("hello world")
 
@@ -63,19 +72,42 @@
         let d = document.querySelector("div.a > .b")
         console.log(c)
 
+
+
+        document.querySelector("div.e").querySelector(".d")
+
+        let ed = document.querySelector("div.e")
+        ed.querySelector(".d")
+
+
+
         let e = document.querySelector("div.e")
         console.log("e.innerHTML:", e.innerHTML);
         console.log("e.text:", e.text);
 
+        // 텍스트 노드 변경
         let msg = document.querySelector("#msg")
-        msg.innerHTML = "다른 <strong>글씨</strong>"
+        msg.innerHTML = "다른 <strong>글씨</strong>" 
+        //HTML태그와 자식노드를 포함한 텍스트 를 처리
 
         let msg2 = document.querySelector("#msg2")
-        msg2.innertext = "다른 <strong>글씨</strong>"
+        msg2.innerText = "다른 <strong>글씨</strong>"
+        //단순한 텍스트만을 처리
 
         let id = document.querySelector("#id2")
         console.log(id.value)
-        
-  </script>
+
+        let src ="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjAzMjVfNDgg%2FMDAxNjQ4MjE3NDIxNTc3.zDtUh3Qt-o399qTYPeBHTYd6b4h9DDn31OIT_gVoqfcg.ioAsIUA23Zdc88w3qfcdvhKsDKjA-hb4do2ogJXf8L0g.PNG.ksyslo%2FDrawing_Study_Day12-1.png&type=sc960_832"
+        let img = document.querySelector("img")
+        // 기존의 src값을 읽는 법
+        let src_origin = img.getAttribute("src")
+        console.log(src_origin)
+        document.querySelector("p#info").innerHTML = src_origin
+
+        //속성 중에 src속성의 값을 바꾸는 것
+        img.setAttribute("src", src)
+        img.setAttribute("style", "border : 3px solid red;")
+
+    </script>
 </body>
 </html>

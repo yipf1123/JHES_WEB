@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 속성으로 이벤트 적용하는 방법 "on"+"이벤트명"-->
+   <input type="button", value="클릭해주꼬야?" onclick="fnClick()"> 
+   <br>
+   <input type="button", id="btn2" value="메렁">
+   <br>
+   <input type="text" id="id">
+   <br>
+   <input type="text" id="pw">
+   <hr>
+
+   <!-- 게시판 with checkbox-->
+   <table border = "1"> <!-- 전체 영역을 차지하는 블럭-->
+        <tr> <!-- 한 줄-->
+            <td>
+                <input id ="chk_1" class = "c1 c2" value= "11" type="checkbox">글자
+            </td> <!-- 한 칸-->
+            <td>
+                첫줄 - 두번째칸
+            </td>
+        </tr>
+        <tr><!-- 한 줄-->
+            <td><input id ="chk_2" class = "c1 c2" value= "22" type="checkbox"></td>
+            <td>다음줄 - 두번째칸</td>
+        </tr>          
+   </table>
+   <button id="btn">확인</button> <!-- 일부 영역을 차지하는 인라인-->
+
+   <script>
+
+        // 확인 버튼에
+        // 이벤트 click 바인딩한다
+        let btn = document.querySelector("#btn")
+        btn.addEventListener("click",function(){
+            //checkbox들의 
+            // 값을 출력
+
+            //check된 checkbox것 모두 가져오기
+            // let check_list = document.querySelectorAll(".c1:checked")
+
+            let checked_list = []; //배열 선언
+
+
+            // class에 c1있는것 모두 가져오기
+            let check_list = document.querySelectorAll(".c1")
+            for(let item of check_list){
+                if(item.checked){
+                    console.log(item.value);
+
+                    //배열에 넣기
+                    checked_list.push(item.value)
+
+                }
+            }
+            //배열 
+            console.log(checked_list);
+        })
+            function fnClick(){
+            alert("클리크!")
+        }
+    // js의 dom 변수의 on+이벤트명에 함수를 지정하는 방법
+    let btn2 = document.querySelector("#btn2");
+    // btn2.onclick = fnClick;
+    btn2.onclick = function(){
+        alert("클릭2")
+    }
+    
+    btn2.onclick = function(){
+        alert("클릭3") // 위에꺼에다가 덮어씀
+    }
+
+                                // 콜백함수
+    btn2.addEventListener("click", fnClick); // 덮어쓰지 않고 나옴
+    btn2.addEventListener("click", function() {
+        alert("클릭4"),
+        alert("클릭5")       
+    });
+    
+    let id = document.querySelector("#id");
+    id.addEventListener("keyup",function(event){
+        console.log(event.keyCode);
+    });
+    
+    // focus 이동시키는 법
+
+   </script> 
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="전화번호, 사용자 이름 또는 이메일" id="id">
+    <br>
+    <input type="text" placeholder="비밀번호" id="pw" onkeydown="handleKeyDown()">
+    <br>
+    <input type="button" value="로그인" id="login">
+    <script>
+    
+    function handleKeyDown() {
+    if (event.keyCode === 13) {
+      event.preventDefault(); 
+      document.querySelector("#login").click();
+    }
+    }    
+
+
+    let id = "lalala"
+    let pw = "1234"
+    let btn1 = document.querySelector("#login");
+   
+    btn1.addEventListener("click", function() {
+        if((id == document.querySelector("#id").value)
+        ||(pw == document.querySelector("#pw").value))
+        {
+            alert("환영합니다.")
+            location.href="http://naver.com"}
+            else{
+                alert("아이디 또는 비밀번호가 일치하지 않습니다")}
+    });
+
+
+        
+    
+</script>
+
+</body>
+</html>
