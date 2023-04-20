@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax 공공데이터</title>
+</head>
+<body>
+    <!-- http://openapi.seoul.go.kr:8088/45737756666c657335356b534a496d/json/DailyAverageCityAir/1/5/20230420/%EC%84%9C%EB%82%A8%EA%B6%8C/%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC-->
+
+    <!--
+        버튼을 만들고
+        ajax로 공공데이터(대기 정보)를 가져온다
+        가져온 정보를 표시한다
+
+        *심화
+        날짜, 권력, 측정소명 추가로 받기
+    -->
+    
+    <h2>영등포구의 미세먼지와 초미세먼지</h2>
+    <select name="year" id="year"></select>
+    <select name="month" id="month"></select>
+    <select name="day" id="day"></select>
+    <input id = "getInfo" type="button" value="가져오기">
+    <div id= "info">
+        <style>
+            
+            th, td {
+                border : 1px solid black;
+                padding: 10px;
+            }
+            </style>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>내용</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 년도 for문
+        let year = document.querySelector("#year");
+        for (var i = 2013; i <= 2023; i++) {
+          let option = document.createElement("option");
+
+            option.value = i;
+            option.text = i;
+            year.appendChild(option);
+            
+        }
+         
+        
+        // 달 for문
+        let month = document.querySelector("#month");
+        for (var i = 1; i <= 12; i++) {
+          let option = document.createElement("option");
+          if(i<10){
+            i = "0" + i;
+          }
+            option.value = i;
+            option.text = i;
+            month.appendChild(option);
+
+        }
+         
+        
+        // 날짜 for문
+        let day = document.querySelector("#day");
+        for (var i = 1; i <= 31; i++) {
+          let option = document.createElement("option");
+          if(i<10){
+            i = "0" + i;
+          }
+            option.value = i;
+            option.text = i;
+            day.appendChild(option);
+
+        }
+
+        // 가져오기 버튼의 기능
+        let btn1 = document.querySelector("#getInfo")
+        btn1.addEventListener("click",function(){
+            
+            // select 선택값 변수에 담기
+            let year = document.querySelector("#year").value
+            let month = document.querySelector("#month").value            
+            let day = document.querySelector("#day").value
+
+            // ajax 객체 생성
+            let xhr = new XMLHttpRequest();
+            // const xhr = new XMLHttpRequest(); -- 변경이 불가
+            
+            // 서버로의 요청을 준비한다
+            let url = "http://openapi.seoul.go.kr:8088/45737756666c657335356b534a496d/json/DailyAverageCityAir/1/5/"+ year + month + day + "/서남권/영등포구"
+            xhr.open("GET", url)
+            
+            xhr.send();
+
+            // 다녀오는게 끝났을때(응답 이후)
+            xhr.onload = function(){
+                console.log(xhr.responseText)
+                try{
+                    let json_data = JSON.parse(xhr.responseText);
+                    console.log(json_data)
+                    let PM10 = json_data.DailyAverageCityAir.row[0].PM10
+                    let PM25 = json_data.DailyAverageCityAir.row[0].PM25
+                    let html = "";
+                    html += '<tr>'; // 가로줄 삽입
+                    html += '<td>미세먼지</td>' // 셀 삽입
+                    html += '<td>' + PM10+'</td>'
+                    html += '</tr>';
+                    html += '<tr>';
+                    html += '<td>초미세먼지</td>'
+                    html += '<td>' + PM25+'</td>'
+                    html += '</tr>';
+                    document.querySelector("tbody").innerHTML = html;
+                }catch(e){
+                    console.error(e)
+                }
+            }
+        
+        
+        })
+
+ 
+
+        
+        let a ={
+            "key" : "value",
+            "key1" : "value1",
+            "key3" : [1,2,3],
+            "key4" : {
+                "key1-1": "value"
+            }
+        }
+        // 가져오는법
+        a.key1    // value1 
+        a["key1"] // value1
+        a.key4.key1-1 //value
+        a["key4"]["key1-1"] //value
+
+        // 없으면 추가하고 있으면 덮어 쓴다
+        a.key2 = "abc"
+
+
+
+
+    </script>
+</body>
+</html>

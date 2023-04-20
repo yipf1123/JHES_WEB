@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax copy</title>
+    
+</head>
+<body>
+    <input type="text" id="address" placeholder="웹페이지 주소를 입력하세요">
+    <input type="button" id="btn1" value="js-ajax 실행">
+    <div id="result" style="border: 1px solid red;">내용없음</div>
+    <script>
+        // 참고 : https://poiemaweb.com/js-ajax#3-xmlhttprequest
+        
+        let btn1 = document.querySelector("#btn1")
+        btn1.addEventListener("click",function(){
+            let ad = document.querySelector("#address").value
+            
+            // ajax 객체 생성
+            let xhr = new XMLHttpRequest();
+            // const xhr = new XMLHttpRequest(); -- 변경이 불가
+            // 서버로의 요청을 준비한다
+            let url = "https://cors-anywhere.herokuapp.com/" + ad
+            console.log(url)
+            xhr.open("GET",url)
+            // XMLHttpRequest.open(method, url[, async])
+            // async : 비동기 조작 여부. 
+            //         옵션으로 default는 true이며 비동기 방식으로 동작한다.
+            //         동기 이면 완료가 되어야 다음 코드로 넘어가는 방식으로 동작
+            //         예를 들면 send가 끝나야 다음 코드로 넘어간다.
+
+
+            
+            // 실행을 지시. 단 ! 언제 끝날지 모름
+            xhr.send();
+
+            // 다녀오는게 끝났을때(응답 이후)
+            xhr.onload = function(){
+                console.log(xhr.responseText)
+                let result = document.querySelector("#result")
+                result.innerHTML = xhr.responseText
+            }
+        
+        
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>html편</h2>
+     <!-- 페이지 이동 방법 html편-->
+     <a href="http://naver.com">네이버</a><br>  <!-- 현재화면에서 열림 -->
+    <a href="http://daum.net" target="_blank">다음</a><br> <!-- 새화면에서 열림 -->
+    <a href="#here">바로가기</a>
+
+    
+    <br><br>
+    <div id = "here">
+        왔능가~
+    </div>
+
+    <br>
+    <br>
+
+    <form action ="https://naver.com" method = "get">
+        글씨<br>
+        아이디 : <input type ="text" name = "id"><br>
+        비 번 : <input type = "text" name = "pw"><br>
+        <!-- https://www.naver.com/?id=sss&pw=sss -->
+        <select name="year">
+            <option value="2023">올해</option>
+            <option value="2022">작년</option>
+        </select>
+        <input type="submit" value="이동">
+    </form>
+    
+    <br>
+    <form id= "form1" action="https://search.naver.com/search.naver" method="get">
+        
+        검색: <input type="text" name="query"> <br>
+        <input type ="submit" value="네이버 검색"> 
+    </form>
+    
+    <br>
+    <form action="https://search.naver.com/search.naver" method="post">    
+        검색: <input type="text" name="query"> <br>
+        <input type ="submit" value="네이버 검색 post"> 
+    </form>
+    
+    <hr>
+    <h2>javascript편</h2>
+    <input type="button" id="btn1" value="페이지 이동">
+    <script>
+        let btn1 = document.querySelector("#btn1");
+        btn1.addEventListener("click", function() {
+            location.href = "http://naver.com"
+        });
+    </script>
+    <br>
+    
+
+    <input type="button" id="btn2" value="submit">
+    <script>
+        let btn2 = document.querySelector("#btn2");
+        btn2.addEventListener("click", function(event) {
+
+            event.preventDefault(); //원래 기능을 막아준다
+
+            let form1 = document.querySelector("#form1")
+            // form1.submit();
+            let dom_keyword = form1.querySelector("input[name=query]")
+            let keyword = dom_keyword.value // 내가 쓴 값
+           
+            // 검색어를 입력하지 않으면 검색이 안되게
+            if(keyword.length > 0) {
+                form1.submit();
+            } else {
+                alert("검색어를 입력하세요")
+                dom_keyword.focus();
+            }
+
+        });
+    </script>
+
+
+
+
+</body>
+</html>
